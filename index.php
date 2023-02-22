@@ -4,55 +4,81 @@
    <link rel="stylesheet" href="estilo.css" type="text/css">
    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
    <script>
-   $(document).ready(function(){
-    $('#f1').hide();
-    
-     
+    $(document).ready(function() {
 
-   $('#btn1').click(function(){
-    $('#f1').show();
+    $('#btnl').click(function() {
+      
+
+        $.ajax({
+            
+            url:"https://jsonplaceholder.typicode.com/users/2",
+            method: "GET",
+            success: function(data) {
+            $('#nom').val(data.name);
+            $('#correo').val(data.email);
+            }
+        });
   
-   });
-   
-   
-   $('#btn2').click(function(){
-    $('#f1').hide();//-----ocultar 
-           });
-});
+
+    });
+
+    });
+
    </script>
 </head>
 <body>
 
-<div class="panel-1"><B>Formulario<B></div>
+<div class="panel-1"><B>AJAX-API REST<B></div>
 <br>
-<div class="panel-1" id="f1">
-<form method="post" action="pagina1.php">
 
+<div class="formpanel" id="fl">
 
-Ingrese el valor del primer numero:
-<input type="text" name="numero1">
+<button id="btnl">CONSULTAR API REST</button><br>
 <br>
-Ingrese el valor del segundo numero:
-<input type="text" name="numero2">
+NOMBRE: <br><input class="form-control" type="text" id="nom" size="27"><br><br>
 
-<select name="operacion">
-<option value="suma">suma</option>
-<option value="resta">resta</option>
-<option value="multiplicar">multiplicar</option>
-<option value="division">division</option>
-</select>
+EMAIL: <br><input class="form-control" type="text" id="correo" size="27"><br><br>
 
-<input type="submit" value="Generar">
-
-</form>
 </div>
-
-
-
-<button id="btn1">Operacion</button>
-<button id="btn2">Ocultar</button>
-
-
 
 </body>
 </html>
+
+
+
+
+
+
+
+<tb><br><br><br><br>
+
+<html>      <head>
+    <title>Practica2</title>
+ </head>
+<body>
+<div class="panel-1"><B>Practica 2 -RFC<B></div>
+<form method="post" action="pagina1.php">
+ <tab><tab>
+<p><label>Nombre: </label>
+<input type="text" name="nombre" required="" pattern="[A-ZÄËÏÖÜÁÉÍÓÚÂÊÎÔÛÁÉÍÓÚ][a-
+zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ]+(\S)?([A-ZÄËÏÖÜÁÉÍÓÚÂÊÎÔÛÁÉÍÓÚ][a-
+zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ]+)?"/></P> 
+
+<p><label>Apellido paterno: </label>
+<input type="text" name="ap" required="" pattern="[A-ZÄËÏÖÜÁÉÍÓÚÂÊÎÔÛÁÉÍÓÚ][a-
+zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ]+"/></P> 
+
+
+<p><label>Apellido materno: </label>
+<input type="text" name="am" required="" pattern="[A-ZÄËÏÖÜÁÉÍÓÚÂÊÎÔÛÁÉÍÓÚ][a-
+zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ]+)"/></P> 
+
+<p><label>Fecha de nacimiento: </label>
+<input type="date" name="fn" required=""/></P> 
+
+
+<p><input type="submit" value="Enviar"/></p>
+</form>
+</body>
+</html>
+
